@@ -1,22 +1,27 @@
+from types import ClassMethodDescriptorType
+
+
 class User:
     age = 0
+    name = ""
+
+    def print_age(self):
+        print(self.name, "ma", self.age, "lat")
+
+    def name(args):
+        pass
 
 
-seba = User()
-mirek = User()
-andrzej = User()
+user1 = User()
+user2 = User()
+user3 = User()
+UserList = [user1, user2, user3]
 
-seba.age = 16
-mirek.age = 24
+user1.name = "Arek"
+user1.age = 27
 
-seba.age = 10
-age = 40
+user2.name = "Witek"
+user2.age = 34
 
-print(seba.age)
-print(mirek.age)
-print(andrzej.age)
-print(age)
-
-x = 5.0
-
-print(x.is_integer())
+UserList[1].print_age()
+# user2.print_age()
