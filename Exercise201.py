@@ -1,3 +1,4 @@
+from math import sqrt
 import random
 
 
@@ -5,7 +6,7 @@ class Rocket:
     """Rocket class
     """
 
-    def __init__(self, speed=5, name="SampleRocket", height=5, prodDate=2021, base="Gdańsk"):
+    def __init__(self, speed=5, altitude=0, position=10, name="SampleRocket", height=5, prodDate=2021, base="Gdańsk"):
         """Constructor
         """
         print("Rocket initialized")
@@ -14,13 +15,19 @@ class Rocket:
         self.speed = speed
         self.prodDate = prodDate
         self.base = base
-        self.altitude = 0
+        self.altitude = altitude
+        self.position = position
 
     def moveUp(self):
         self.altitude += self.speed * random.randrange(0, 10)
 
     def __str__(self):
-        print(str(self.altitude))
+        return "Rakieta jest na wysokości " + str(self.altitude) + " m"
+
+    def getdistance(self, rocket):
+        ab = (rocket.altitude - self.altitude) ** 2
+        bc = (rocket.position - self.position) ** 2
+        return sqrt(ab + bc)
 
 
 class RocketBoard:
@@ -35,10 +42,11 @@ class RocketBoard:
             rocketIndexToMove = random.randint(0, len(self.rockets)-1)
             self.rockets[rocketIndexToMove].moveUp()
 
-        for rocket in self.rockets:
-            print(rocket.name)
-            print(rocket.altitude)
-            print(rocket.speed)
+    def __getitem__(self, key):
+        return self.rockets[key]
+
+    def __setitem__(self, key, value):
+        self.rockets[key].altitude = value
 
 
 """
