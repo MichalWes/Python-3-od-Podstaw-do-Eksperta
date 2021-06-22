@@ -3,8 +3,12 @@ import random
 
 
 class Rocket:
+    """Rocket class
+    """
 
     def __init__(self, name, height, speed, prodDate, base):
+        """Constructor
+        """
         print("Rocket initialized")
         self.name = name
         self.height = height
@@ -15,6 +19,9 @@ class Rocket:
 
     def moveUp(self, speed):
         self.altitude += speed * random.randrange(0, 10)
+    
+    def __str__(self):
+     pass
 
 
 RocketList = {
