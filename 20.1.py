@@ -1,24 +1,30 @@
 from types import ClassMethodDescriptorType
+import random
 
 
-class User:
-    def print_age(self):
-        print(self.name, "ma", self.age, "lat")
+class Rocket:
 
-    def __init__(self, age, name):
-        print("Jestem inicjalizatorem")
-        self.age = age
+    def __init__(self, name, height, firePower, prodDate, base):
+        print("Rocket initialized")
         self.name = name
-
-    def name(args):
-        pass
-
-
-user1 = User(34, "Arek")
-user2 = User(24, "Mirek")
-user3 = User(23, "Michal")
-UserList = [user1, user2, user3]
+        self.height = height
+        self.firePower = firePower
+        self.prodDate = prodDate
+        self.base = base
+        self.posVert = 0
 
 
-UserList[1].print_age()
-# user2.print_age()
+RocketList = {
+    Rocket("ORP Pułaski", 40, 1000, 2005, "Katowice"),
+    Rocket("ORP Sienkiewicz", 35, 1400, 2011, "Gdynia"),
+    Rocket("ORP Jan Paweł II", 45, 6000, 1995, "Wadowice"),
+    Rocket("ORP Kaczynski I", 15, 10, 2010, "Smolensk"),
+    Rocket("ORP Kaczynski II", 10, 5, 2018, "Warszawa")
+}
+
+
+for element in RocketList:
+    for i in range(0, 10):
+        element.posVert += random.randrange(0, 1000)
+    print("Rakieta " + element.name +
+          " jest na wysokości " + str(element.posVert) + "m")
