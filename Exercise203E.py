@@ -1,4 +1,4 @@
-from Exercise203S import BankAccount, MinimumBalanceAccount
+from Exercise203S1 import BankAccount, MinimumBalanceAccount
 
 accounts = [MinimumBalanceAccount() for _ in range(10)]
 
@@ -10,6 +10,8 @@ accounts[0].checkAccountBalance()
     print(account.id)
     print(account.balance) """
 # print(result.isSuccess)
-result = accounts[0].tryDeductMoneyFromBalance(2800)
+result = accounts[0].tryDeductMoneyFromBalance(600)
 
+print(result.isOK())
 print(result.message1)
+print(result.message2)

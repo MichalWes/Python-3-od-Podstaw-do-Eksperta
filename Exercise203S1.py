@@ -1,9 +1,4 @@
-class Result:
-
-    def __init__(self, isSuccess, message1, message2=""):
-        self.isSuccess = isSuccess
-        self.message1 = message1
-        self.message2 = message2
+from Exercise203S2 import Ok, Error
 
 
 class BankAccount:
@@ -26,9 +21,9 @@ class BankAccount:
     def tryDeductMoneyFromBalance(self, amount):
         if self.balance > amount:
             self.balance -= amount
-            return Result(True, "Wypłacono: " + str(amount) + "zł", "Pozostało: " + str(self.balance) + "zł")
+            return Ok("Wypłacono: " + str(amount) + "zł", "Pozostało: " + str(self.balance) + "zł")
         else:
-            return Result(False, "Za mało pieniędzy na koncie")
+            return Error("Za mało pieniędzy na koncie")
 
     def checkAccountBalance(self):
         print("Stan konta to: " + str(self.balance) + "zł")
@@ -46,4 +41,4 @@ class MinimumBalanceAccount(BankAccount):
         if (self.balance - amount > self.minimumBalance):
             return super().tryDeductMoneyFromBalance(amount)
         else:
-            return Result(False, "Próba wypłaty poniżej limitu konta")
+            return Error("Próba wypłaty poniżej limitu konta")
