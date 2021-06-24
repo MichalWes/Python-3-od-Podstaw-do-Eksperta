@@ -5,6 +5,7 @@ import random
 class Rocket:
     """Rocket class
     """
+    nextId = 1
 
     def __init__(self, speed=5, altitude=0, position=10, name="SampleRocket", height=5, prodDate=2021, base="Gdańsk"):
         """Constructor
@@ -17,6 +18,8 @@ class Rocket:
         self.base = base
         self.altitude = altitude
         self.position = position
+        self.id = Rocket.nextId
+        Rocket.nextId += 1
 
     def moveUp(self):
         self.altitude += self.speed * random.randrange(0, 10)
