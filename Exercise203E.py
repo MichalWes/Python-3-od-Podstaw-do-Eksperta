@@ -10,4 +10,4 @@ accounts[0].checkAccountBalance()
 """ for account in accounts:
     print(account.id)
     print(account.balance) """
-print(result)
+print(result.message2)

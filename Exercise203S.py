@@ -1,3 +1,11 @@
+class Result:
+
+    def __init__(self, isSuccess, message1, message2):
+        self.isSuccess = isSuccess
+        self.message1 = message1
+        self.message2 = message2
+
+
 class BankAccount:
     nextId = 10000
 
@@ -18,9 +26,9 @@ class BankAccount:
     def tryDeductMoneyFromBalance(self, amount):
         if self.balance > amount:
             self.balance -= amount
-            return {"isSuccess": True, "Message1": "Wypłacono: " + str(amount) + "zł", "Message2": "Pozostało: " + str(self.balance) + "zł"}
+            return Result(True, "Wypłacono: " + str(amount) + "zł", "Pozostało: " + str(self.balance) + "zł")
         else:
-            return {"isSuccess": False, "Message": "Za mało pieniędzy na koncie"}
+            return Result(False, "Za mało pieniędzy na koncie")
 
     def checkAccountBalance(self):
         print("Stan konta to: " + str(self.balance) + "zł")
