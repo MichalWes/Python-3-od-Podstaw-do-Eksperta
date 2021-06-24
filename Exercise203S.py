@@ -15,13 +15,12 @@ class BankAccount:
         print("Wpłacono: " + str(amount) + "zł")
         print("Na koncie jest teraz: " + str(self.balance) + "zł")
 
-    def deductMoneyFromBalance(self, amount):
+    def tryDeductMoneyFromBalance(self, amount):
         if self.balance > amount:
             self.balance -= amount
-            print("Wypłacono: " + str(amount) + "zł")
-            print("Pozostało: " + str(self.balance) + "zł")
+            return (True, "Wypłacono: " + str(amount) + "zł", "Pozostało: " + str(self.balance) + "zł")
         else:
-            print("Za mało pieniędzy na koncie")
+            return (False, "Za mało pieniędzy na koncie")
 
     def checkAccountBalance(self):
         print("Stan konta to: " + str(self.balance) + "zł")
