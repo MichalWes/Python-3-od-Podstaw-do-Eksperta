@@ -25,3 +25,6 @@ class BankAccount:
 
     def checkAccountBalance(self):
         print("Stan konta to: " + str(self.balance) + "zł")
+
+    def __str__(self):
+        return "Początkowy stan konta to: " + str(self.balance) + "zł"
