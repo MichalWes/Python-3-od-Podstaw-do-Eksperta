@@ -18,9 +18,9 @@ class BankAccount:
     def tryDeductMoneyFromBalance(self, amount):
         if self.balance > amount:
             self.balance -= amount
-            return (True, "Wypłacono: " + str(amount) + "zł", "Pozostało: " + str(self.balance) + "zł")
+            return {"isSuccess": True, "Message1": "Wypłacono: " + str(amount) + "zł", "Message2": "Pozostało: " + str(self.balance) + "zł"}
         else:
-            return (False, "Za mało pieniędzy na koncie")
+            return {"isSuccess": False, "Message": "Za mało pieniędzy na koncie"}
 
     def checkAccountBalance(self):
         print("Stan konta to: " + str(self.balance) + "zł")
